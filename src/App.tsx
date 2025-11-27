@@ -3,43 +3,33 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Layout from './components/Layout'
+const baseclasses = "w-full py-4 rounded-lg font-bold text-lg shadow-sm border transition-all";
 
 function App() {
-  const [count, setCount] = useState(0)
+const calcButtons = [
+  "%", "CE", "C", "⌫",
+  "1/x", "x²", "√x", "÷",
+  "7", "8", "9", "×",
+  "4", "5", "6", "-",
+  "1", "2", "3", "+",
+  "+/-", "0", ".", "="
+];
+
+const [count, setCount] = useState(0)
+
 
   return (
     <Layout>
-      <div className="grid grid-cols-4 gap-4">
-        {/* 這裡面的子元素會自動變成 3 欄排列 */}
-        <button>%</button>
-        <div>CE</div>
-        <div>C</div>
-        <div>⌫</div>
+      <div className="grid grid-cols-4 gap-2">
+        {calcButtons.map(
+          (sign, index) => {
 
-        <div>1/x</div>
-        <div>x**2</div>
-        <div>x//2</div>
-        <div>/</div>
-
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-        <div>X</div>
-        
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>-</div>
-
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>+</div>
-
-        <div>+//</div>
-        <div>0</div>
-        <div>.</div>
-        <div>=</div>
+        return (
+          <div key={index} className={baseclasses}>
+                {sign} 
+          </div>
+            
+        )})}
 
       </div>
     </Layout>
